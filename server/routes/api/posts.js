@@ -1,5 +1,6 @@
 const express = require('express');
 const mongodb = require('mongodb');
+const mongoAtlasKey = require('../../keys.js')
 
 
 const router = express();
@@ -29,7 +30,7 @@ router.delete('/:id', async (req, res) => {
 })
 
 async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect('mongodb+srv://davieu101:davieu101@cluster0-vgyon.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true})
+  const client = await mongodb.MongoClient.connect(mongoAtlasKey, {useNewUrlParser: true})
   
   return client.db('vue-fullstack').collection('posts')
 }

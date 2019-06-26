@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 // const url = 'http://localhost:5000/api/posts/';
+//We dont have to specify localhost:5000 anymore since we created a proxy for it
 const url = 'api/posts/';
 
 //with static methods you don't have to instantiate the class to use the methods. new PostService not needed. 
