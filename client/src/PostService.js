@@ -12,6 +12,7 @@ class PostService {
       try {
         const res = await axios.get(url);
         const data = res.data;
+        data.reverse();
         //if what we do is successful then we call resolve()
         resolve(
           data.map(post => ({

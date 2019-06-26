@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <h1>Latest Posts</h1>
+  <h1>Latest Posts </h1>
   <div class="create-post">
     <label for="create-post">Say Something... </label>
     <input type="text" id="create-post" v-model="text" placeholder="Craete a post">
@@ -14,11 +14,10 @@
     :item="post"
     :index="index"
     :key="post._id"
-    @dblclick="deletePost(post._id)"
-    >
-      {{ `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}` }}
+    > 
+      <button type="button" class="delete-post-btn btn btn-primary" @click="deletePost(post._id)">X</button>
       <p class="text">{{ post.text }}</p>
-
+      <p class="created-at">{{ `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}` }}</p>
     </div>
   </div>
 </div>
@@ -55,6 +54,9 @@ export default {
       await PostService.deletePost(id);
       this.posts = await PostService.getPosts()
     }
+  },
+  computed: {
+
   }
 }
 </script>
@@ -66,6 +68,11 @@ div.container {
   margin: 0 auto;
 }
 
+.delete-post-btn {
+  position: absolute;
+  left: 92%;
+}
+
 p.error {
   border: 1px solid #ff5b5f;
   background-color: #ffc5c1;
@@ -73,7 +80,7 @@ p.error {
   margin-bottom: 15px
 }
 
-div.post {
+.post {
   position: relative;
   border: 1px solid #5bd658;
   background-color: #bcffb8;
@@ -81,19 +88,21 @@ div.post {
   margin-bottom: 15px;
 }
 
-div.created-at {
+.created-at {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 5px 15px 5px 15px;
+  padding: 5px 15 px 5px 15px;
   background-color: darkgreen;
   color: white;
-  font-size: 13px;
+  font-size: 15px;
 }
+
 
 p.text {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 0;
+  margin-top: 50px;
 }
 </style>
