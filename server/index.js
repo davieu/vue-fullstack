@@ -11,6 +11,7 @@ app.use(cors());
 app.use('/api/posts', require('./routes/api/posts'));
 
 // Handle production
+// backend auth
 //process.env.NODE_ENV === 'production' checks to see if in production. As soon as you are deployed to heroku it is set to true
 if(process.env.NODE_ENV === 'production') {
   // Static folder
