@@ -1,5 +1,5 @@
 # vue-fullstack
-vue with node express
+vue with node express. Kind of like a todo. 
 
 https://fullstack-vue-posts.herokuapp.com/
 https://fullstack-vue-posts.herokuapp.com/api/posts ----- for looking at the api
